@@ -1,4 +1,4 @@
-import Welcome from "./components/props";
+import Welcome from "./components/props/Index";
 
 export default function App() {
   return (

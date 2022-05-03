@@ -1,14 +1,10 @@
+import Avatar from "./Avatar";
+
 export default function Comement(props) {
     return(
         <div className="Comment">
             <div className="UserInfo">
-                <img className="Avatar"
-                src={props.author.avatarUrl}
-                alt={props.author.name}
-                />
-                <div className="UserInfo-name">
-                {props.author.name}
-                </div>
+                <Avatar/>
             </div>
             <div className="Comment-text">
                 {props.text}
