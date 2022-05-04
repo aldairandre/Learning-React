@@ -3,9 +3,12 @@ export default function Welcome(props){
         <div 
             style={
                 {
-                    width:'100%',backgroundColor:'red',
+                    width:'100%',
+                    backgroundColor:'red',
                     display:'flex',
-                    flexDirection:'column',alignItems:'center'
+                    flexDirection:'column',
+                    alignItems:'center',
+                    padding:'2rem'
                 }
             }>
             <h1 

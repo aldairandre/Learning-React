@@ -1,11 +1,16 @@
-import Avatar from "./Avatar";
+import UserInfo from "./UserInfo";
 
-export default function Comement(props) {
+
+function formatDate(date) {
+    return date.toLocaleDateString()
+}
+
+export default function Comment(props) {
     return(
-        <div className="Comment">
-            <div className="UserInfo">
-                <Avatar/>
-            </div>
+        <div className="Comment"
+            style={{width:'100%',display:'flex',flexDirection:'column',alignItems:'center',marginTop:'0rem',backgroundColor:'blue',padding:'2rem'}}
+        >
+            <UserInfo user={props.autor}/>
             <div className="Comment-text">
                 {props.text}
             </div>
