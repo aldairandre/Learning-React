@@ -8,7 +8,8 @@ export default function Welcome(props){
                     display:'flex',
                     flexDirection:'column',
                     alignItems:'center',
-                    padding:'2rem'
+                    padding:'2rem',
+                    background:'red'
                 }
             }>
             <h1 

@@ -1,5 +1,6 @@
 import Welcome from "./components/props/Index";
 import Comment from "./components/comment/Index";
+import Hooks from "./components/reactHooks";
 
 const comment = {
   date: new Date(),
@@ -20,6 +21,7 @@ export default function App() {
         text={comment.text}
         autor={comment.author}      
         />
+        <Hooks/>
     </div>
   )
 }

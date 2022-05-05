@@ -1,26 +1,65 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 export default function Hooks() {
-    const [repositories, setRepositories ] = useState([
-        { id: 1, name: 'Repo-1' },
-        { id: 2, name: 'Repo-2' },
-        { id: 3, name: 'Repo-3' }
-    ])
+    const [ repositories, setRepositories ] = useState([])
 
-    function handleAddRepositories(){
-        setRepositories([...repositories,{id: Math.random(),name: 'New-repo'}])
-    }
+    useEffect( async () => {
+        const response = await fetch('https://api.github.com/users/aldairandre/repos')
+        const date = await response.json()
+
+        setRepositories(date)
+
+        /**Alterando dados do estado repositories */
+    },[])
+
 
     return(
-        <div>
+        <div style={
+            {
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '2rem',
+                background:'orangered'
+            }
+            }>
             <ul>
                 {repositories.map( repo => <li key={repo.id}>{repo.name}</li>
                 )}
             </ul>
             
-            <button onClick={handleAddRepositories}>
-                Add repositories
-            </button>
-        </div>
-    )
+        </div>)
 }
+    /*
+        <div style={
+        {
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '2rem',
+            background:'orangered'
+        }
+        }>
+        <ul>
+            {repositories.map( repo => <li key={repo.id}>{repo.name}</li>
+            )}
+        </ul>
+        
+        <button onClick={handleAddRepositories} 
+            style={
+                {
+                    width:'80%',
+                    background:'white',
+                    borderRadius:'20px',
+                    marginTop:'2rem',
+                    padding:'0.8rem',
+                    outline:'none',
+                    border:'none'
+              }
+            }>
+            Add repositories
+        </button>
+         </div>
+    */
