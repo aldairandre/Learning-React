@@ -27,43 +27,11 @@ export default function Hooks() {
                 background:'orangered'
             }
             }>
-            <h1 stye></h1>
+            <h1 style={{textAlign:'center',marginBottom:'2rem'}}>useEffect + Axios</h1>
             <ul>
-                {repositories.map( repo => <li key={repo.id}>{repo.name}</li>
+                {repositories.map(repo => <li key={repo.id}>{repo.name}</li>
                 )}
             </ul>
             
         </div>)
 }
-    /*
-        <div style={
-        {
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '2rem',
-            background:'orangered'
-        }
-        }>
-        <ul>
-            {repositories.map( repo => <li key={repo.id}>{repo.name}</li>
-            )}
-        </ul>
-        
-        <button onClick={handleAddRepositories} 
-            style={
-                {
-                    width:'80%',
-                    background:'white',
-                    borderRadius:'20px',
-                    marginTop:'2rem',
-                    padding:'0.8rem',
-                    outline:'none',
-                    border:'none'
-              }
-            }>
-            Add repositories
-        </button>
-         </div>
-    */
