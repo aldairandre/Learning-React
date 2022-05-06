@@ -1,18 +1,28 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios'
+/* import axios from 'axios' */
 
 export default function Hooks() {
     const [ repositories, setRepositories ] = useState([])
 
     useEffect(() => {
-        const url = 'https://api.github.com/users/aldairandre/repos'
+
+        async function searchRepositories(){
+            const response = await (await fetch('https://api.github.com/users/aldairandre/repos')).json()
+            const data = response
+            setRepositories(data)
+            
+        }
+
+        searchRepositories()
+
+        /* const url = 'https://api.github.com/users/aldairandre/repos'
 
         axios.get(url)
             .then(res =>{
                 setRepositories(res.data);
 
             })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err)) */
     })
 
 
