@@ -1,16 +1,19 @@
 import {useState, useEffect} from 'react'
+import axios from 'axios'
 
 export default function Hooks() {
     const [ repositories, setRepositories ] = useState([])
 
-    useEffect( async () => {
-        const response = await fetch('https://api.github.com/users/aldairandre/repos')
-        const date = await response.json()
+    useEffect(() => {
+        const url = 'https://api.github.com/users/aldairandre/repos'
 
-        setRepositories(date)
+        axios.get(url)
+            .then(res =>{
+                setRepositories(res.data);
 
-        /**Alterando dados do estado repositories */
-    },[])
+            })
+                .catch(err => console.log(err))
+    })
 
 
     return(
@@ -24,6 +27,7 @@ export default function Hooks() {
                 background:'orangered'
             }
             }>
+            <h1 stye></h1>
             <ul>
                 {repositories.map( repo => <li key={repo.id}>{repo.name}</li>
                 )}
